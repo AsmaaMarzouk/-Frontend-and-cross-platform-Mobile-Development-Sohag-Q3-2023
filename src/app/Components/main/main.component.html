@@ -1,0 +1,33 @@
+<!-- bind data -->
+<!-- interpolation => value from ts class to html component -->
+<!-- interpolation => {{propertyName}} -->
+<!-- interpolation => {{method}} -->
+<!-- <h1>{{track}}</h1> -->
+
+<!-- <h3>{{sayHello()}}</h3> -->
+
+<!-- Class -->
+<p>For test class values</p>
+<h2>{{trackClass.trackName}}</h2>
+<img src="{{trackClass.trackImage}}" width="200" height="200">
+
+<!-- <p>{{trackClass.trackCourses[0]}}</p>
+<p>{{trackClass.trackCourses[1]}}</p>
+<p>{{trackClass.trackCourses[2]}}</p> -->
+
+<!-- *ngFor => for of -->
+<!-- for(let item of arrayName) -->
+<ul>
+  <li *ngFor="let course of trackClass.trackCourses">{{course}}</li>
+</ul>
+
+
+
+<!-- interface model -->
+<p>For test interface model values</p>
+<h1>{{trackInterface.trackName}}</h1>
+<h3>Track Number: {{trackInterface.trackNum}}</h3>
+
+<ul>
+  <li *ngFor="let c of trackInterface.courses">{{c}}</li>
+</ul>
