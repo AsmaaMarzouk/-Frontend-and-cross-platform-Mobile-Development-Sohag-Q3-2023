@@ -6,17 +6,25 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { MainComponent } from './Components/main/main.component';
+import { ProductListComponent } from './Components/product-list/product-list.component';
+import { FormsModule } from '@angular/forms';
+import { ImgStyleDirective } from './Directives/img-style.directive';
+import { CalcDiscountPipe } from './Pipes/calc-discount.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    MainComponent
+    MainComponent,
+    ProductListComponent,
+    ImgStyleDirective,
+    CalcDiscountPipe
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

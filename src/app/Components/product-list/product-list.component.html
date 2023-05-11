@@ -1,0 +1,76 @@
+<button class="btn btn-primary mb-3" (click)="toggleImage()">Image</button>
+
+<div class="row">
+  <!-- ############################ -->
+  <!-- two way binding -->
+
+  <div class="mb-3">
+    <div class="col-md-2">Filter by name:</div>
+    <!-- <div class="col-md-4"><input type="text" class="form-control" [value]="listFilter"></div> -->
+    <div class="col-md-4"><input type="text" class="form-control" [(ngModel)]="listFilter"></div>
+    <div class="col-md-6">
+      <h4>Filtering value filter by name: {{listFilter}}</h4>
+    </div>
+
+  </div>
+
+
+  <!-- ############################ -->
+  <!-- class binding -->
+  <!-- <div class="col-sm-4" *ngFor="let product of productsList" [class.text-danger]="product.price>20000"
+    [class.bg-warning]="product.price>20000"> -->
+
+  <!-- style binding -->
+  <!-- ternary operator => condition ? true : false -->
+  <!-- <div class="col-sm-4" *ngFor="let product of productsList" [style.color]="(product.price>20000)?'blue':'darkred'"> -->
+
+  <!-- modify for filtering -->
+  <!-- <div class="col-sm-4" *ngFor="let product of filteredProducts" *ngIf="product.price>20000">error -->
+
+  <!-- virtual containers -->
+  <!-- ng-container  & ng-template -->
+  <!-- <div class="col-sm-4" *ngFor="let product of filteredProducts" > -->
+  <ng-container *ngFor="let product of filteredProducts">
+    <!-- <div class="col-sm-4" *ngIf="product.price>20000"> -->
+    <!-- <div class="col-sm-4" [ngClass]="{'text-warning':product.price>20000,'bg-secondary':product.price>20000}"> -->
+    <!-- <div class="col-sm-4" [ngStyle]="{'color':(product.price>20000)?'red':'blue','background-color':(product.price<15000)?'lightgray':'lightgreen'}"> -->
+    <div class="col-sm-4">
+      <!-- <img src="{{product.prdImgURL}}" class="img-fluid" alt=""> -->
+      <!-- property binding -->
+      <img [src]="product.prdImgURL" class="img-fluid" alt="Image" *ngIf="showImage" ImgStyle="45px" radius1="20px">
+      <h4>{{product.name | uppercase}}</h4>
+
+      <!-- <h5>{{product.price|currency:'EGP':'symbol'}}</h5> -->
+      <!-- <h5>{{product.price|currency:'USD':'code'}}</h5> -->
+      <div>
+        <h5 class="text-decoration-line-through">{{product.price|currency:'USD':'symbol'}}</h5>
+        <h5>{{product.price|calcDiscount:50|currency:'USD':'symbol'}}</h5>
+      </div>
+      <div>
+        <!-- switch(statement){case 1: } -->
+        <ng-container [ngSwitch]="product.categoryID">
+          <ng-container *ngSwitchCase="1">Tables</ng-container>
+          <ng-container *ngSwitchCase="2">Chairs</ng-container>
+          <ng-container *ngSwitchCase="3">TV Units</ng-container>
+
+        </ng-container>
+      </div>
+
+      <div>
+        <ng-container *ngIf="product.quantity>0;else outOfstockElem">In Stock</ng-container>
+
+        <!-- template reference => #name -->
+        <ng-template #outOfstockElem>Out Of Stock</ng-template>
+      </div>
+      <button class="btn btn-danger" [disabled]="product.quantity==0">Add to cart<i
+          class="fa-sharp fa-solid fa-cart-plus modifyIcon"></i></button>
+      <!-- </div> -->
+    </div>
+  </ng-container>
+</div>
+<!-- property binding -->
+<!-- <input type="text" [value]="userName"> -->
+
+
+<!-- <h2>Test date pipe</h2>
+<h3>{{todayDate|date:'fullDate'}}</h3> -->
