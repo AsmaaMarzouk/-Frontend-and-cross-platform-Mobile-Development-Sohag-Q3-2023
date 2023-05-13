@@ -1,18 +1,27 @@
 <button class="btn btn-primary mb-3" (click)="toggleImage()">Image</button>
+<!-- ###################################################### -->
+<div class="d-flex mb-3">
+  <h3>Sort from A To z:</h3>
+<button class="border-0" style="background-color: white;"><i class="fa-solid fa-arrow-up-a-z"
+    style="color:blue;font-size: 33px;" (click)="sortPrd()"></i></button>
+</div>
+<!-- ###################################################### -->
+
 
 <div class="row">
   <!-- ############################ -->
   <!-- two way binding -->
 
-  <div class="mb-3">
-    <div class="col-md-2">Filter by name:</div>
-    <!-- <div class="col-md-4"><input type="text" class="form-control" [value]="listFilter"></div> -->
-    <div class="col-md-4"><input type="text" class="form-control" [(ngModel)]="listFilter"></div>
+  <!-- Day3  -->
+  <!-- <div class="mb-3">
+    <div class="col-md-2">Filter by name:</div> -->
+  <!-- <div class="col-md-4"><input type="text" class="form-control" [value]="listFilter"></div> -->
+  <!-- <div class="col-md-4"><input type="text" class="form-control" [(ngModel)]="listFilter"></div>
     <div class="col-md-6">
       <h4>Filtering value filter by name: {{listFilter}}</h4>
     </div>
 
-  </div>
+  </div> -->
 
 
   <!-- ############################ -->
@@ -37,7 +46,7 @@
     <div class="col-sm-4">
       <!-- <img src="{{product.prdImgURL}}" class="img-fluid" alt=""> -->
       <!-- property binding -->
-      <img [src]="product.prdImgURL" class="img-fluid" alt="Image" *ngIf="showImage" ImgStyle="45px" radius1="20px">
+      <img [src]="product.prdImgURL" class="img-fluid" alt="Image" *ngIf="showImage" ImgStyle="30px" radius1="20px">
       <h4>{{product.name | uppercase}}</h4>
 
       <!-- <h5>{{product.price|currency:'EGP':'symbol'}}</h5> -->

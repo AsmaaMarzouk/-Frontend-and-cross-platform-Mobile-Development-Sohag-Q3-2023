@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="mb-3">
+    <div class="col-md-2">Filter by name:</div>
+    <div class="col-md-4"><input type="text" class="form-control" [(ngModel)]="listFilter"></div>
+    <div class="col-md-6">
+      <h4>Filtering value filter by name: {{listFilter}}</h4>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- component directive -->
+<!-- selector -->
+<p>Result from parent component</p>
+
+<!-- property binding -->
+<app-product-list [listFilterInChild]="listFilter" (newProductEvent)="sortProducts($event)"></app-product-list>
+<div class="row">
+
+  <ng-container *ngFor="let product of prds">
+    <!-- <h1>Hello from parent</h1> -->
+
+    <div class="col-sm-4">
+      <img [src]="product.prdImgURL" class="img-fluid" alt="Image" ImgStyle="30px" radius1="20px">
+      <h4>{{product.name | uppercase}}</h4>
+      <div>
+        <h5 class="text-decoration-line-through">{{product.price|currency:'USD':'symbol'}}</h5>
+        <h5>{{product.price|calcDiscount:50|currency:'USD':'symbol'}}</h5>
+      </div>
+      <div>
+        <ng-container [ngSwitch]="product.categoryID">
+          <ng-container *ngSwitchCase="1">Tables</ng-container>
+          <ng-container *ngSwitchCase="2">Chairs</ng-container>
+          <ng-container *ngSwitchCase="3">TV Units</ng-container>
+
+        </ng-container>
+      </div>
+
+      <div>
+        <ng-container *ngIf="product.quantity>0;else outOfstockElem">In Stock</ng-container>
+        <ng-template #outOfstockElem>Out Of Stock</ng-template>
+      </div>
+      <button class="btn btn-danger" [disabled]="product.quantity==0">Add to cart<i
+          class="fa-sharp fa-solid fa-cart-plus modifyIcon"></i></button>
+      <!-- </div> -->
+    </div>
+  </ng-container>
+</div>

@@ -10,6 +10,9 @@ import { ProductListComponent } from './Components/product-list/product-list.com
 import { FormsModule } from '@angular/forms';
 import { ImgStyleDirective } from './Directives/img-style.directive';
 import { CalcDiscountPipe } from './Pipes/calc-discount.pipe';
+import { ProductParentComponent } from './Components/product-parent/product-parent.component';
+import { AboutusComponent } from './Components/aboutus/aboutus.component';
+import { NotFoundPageComponent } from './Components/not-found-page/not-found-page.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { CalcDiscountPipe } from './Pipes/calc-discount.pipe';
     MainComponent,
     ProductListComponent,
     ImgStyleDirective,
-    CalcDiscountPipe
+    CalcDiscountPipe,
+    ProductParentComponent,
+    AboutusComponent,
+    NotFoundPageComponent
   ],
   imports: [
     BrowserModule,
