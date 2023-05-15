@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Iproduct } from '../Models/iproduct';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductsService {
   productsList: Iproduct[];
@@ -16,6 +16,9 @@ export class ProductsService {
         quantity: 2,
         Material: 'Glass',
         categoryID: 1,
+        details:
+          'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis ea error similique. Molestiae aut asperiores nesciunt tenetur vel nihil cumque, consequatur, sint laudantium minus aliquam dolore voluptatibus quisquam error impedit.',
+
         prdImgURL:
           'https://media.homecentre.com/i/homecentre/162104521-162104521-HC171219_01-2100.jpg?fmt=auto&$quality-standard$&sm=c&$prodimg-d-sqr-pdp$',
       },
@@ -28,6 +31,8 @@ export class ProductsService {
           'https://media.homecentre.com/i/homecentre/163645951-163645951-HC07102021_01-2100.jpg?fmt=auto&$quality-standard$&sm=c&$prodimg-d-sqr-pdp$',
         categoryID: 1,
         Material: 'Metal',
+        details:
+        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis ea error similique. Molestiae aut asperiores nesciunt tenetur vel nihil cumque, consequatur, sint laudantium minus aliquam dolore voluptatibus quisquam error impedit.',
       },
       {
         id: 25,
@@ -38,6 +43,8 @@ export class ProductsService {
           'https://media.homecentre.com/i/homecentre/160079085-160079085-HC020518_01-2100.jpg?fmt=auto&$quality-standard$&sm=c&$prodimg-d-sqr-pdp$',
         categoryID: 1,
         Material: 'Metal',
+        details:
+        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis ea error similique. Molestiae aut asperiores nesciunt tenetur vel nihil cumque, consequatur, sint laudantium minus aliquam dolore voluptatibus quisquam error impedit.',
       },
       {
         id: 7,
@@ -48,6 +55,8 @@ export class ProductsService {
           'https://media.homecentre.com/i/homecentre/161257427-161257427-HC280119_01-2100.jpg?fmt=auto&$quality-standard$&sm=c&$prodimg-d-sqr-pdp$',
         categoryID: 2,
         Material: 'Upholstered Seating',
+        details:
+        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis ea error similique. Molestiae aut asperiores nesciunt tenetur vel nihil cumque, consequatur, sint laudantium minus aliquam dolore voluptatibus quisquam error impedit.',
       },
       {
         id: 17,
@@ -58,6 +67,8 @@ export class ProductsService {
           'https://media.homecentre.com/i/homecentre/162640761-162640761-HC23092020_01-2100.jpg?fmt=auto&$quality-standard$&sm=c&$prodimg-d-sqr-pdp$',
         categoryID: 2,
         Material: 'Upholstered Seating',
+        details:
+        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis ea error similique. Molestiae aut asperiores nesciunt tenetur vel nihil cumque, consequatur, sint laudantium minus aliquam dolore voluptatibus quisquam error impedit.',
       },
       {
         id: 9,
@@ -68,6 +79,8 @@ export class ProductsService {
           'https://media.homecentre.com/i/homecentre/159671547-159671547-HCB1226OCT17_01-2100.jpg?fmt=auto&$quality-standard$&sm=c&$prodimg-d-sqr-pdp$',
         categoryID: 2,
         Material: 'Upholstered Seating',
+        details:
+        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis ea error similique. Molestiae aut asperiores nesciunt tenetur vel nihil cumque, consequatur, sint laudantium minus aliquam dolore voluptatibus quisquam error impedit.',
       },
       {
         id: 10,
@@ -78,6 +91,8 @@ export class ProductsService {
           'https://media.homecentre.com/i/homecentre/163723189-163568026-HC16082021_01-2100.jpg?fmt=auto&$quality-standard$&sm=c&$prodimg-d-sqr-pdp$',
         categoryID: 3,
         Material: 'Wood',
+        details:
+        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis ea error similique. Molestiae aut asperiores nesciunt tenetur vel nihil cumque, consequatur, sint laudantium minus aliquam dolore voluptatibus quisquam error impedit.',
       },
       {
         id: 15,
@@ -88,6 +103,8 @@ export class ProductsService {
           'https://media.homecentre.com/i/homecentre/161684469-161684469-HC210519_01-2100.jpg?fmt=auto&$quality-standard$&sm=c&$prodimg-d-sqr-pdp$',
         categoryID: 3,
         Material: 'MDF',
+        details:
+        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis ea error similique. Molestiae aut asperiores nesciunt tenetur vel nihil cumque, consequatur, sint laudantium minus aliquam dolore voluptatibus quisquam error impedit.',
       },
       {
         id: 55,
@@ -98,14 +115,14 @@ export class ProductsService {
           'https://media.homecentre.com/i/homecentre/163688823-163688823-HC05102021_01-2100.jpg?fmt=auto&$quality-standard$&sm=c&$prodimg-d-sqr-pdp$',
         categoryID: 3,
         Material: 'wood',
+        details:
+        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis ea error similique. Molestiae aut asperiores nesciunt tenetur vel nihil cumque, consequatur, sint laudantium minus aliquam dolore voluptatibus quisquam error impedit.',
       },
     ];
   }
 
-  getAllProds():Iproduct[]{
-
+  getAllProds(): Iproduct[] {
     return this.productsList;
-
   }
   performFilter(filterBy: string): Iproduct[] {
     filterBy = filterBy.toLocaleLowerCase();
@@ -114,10 +131,14 @@ export class ProductsService {
     );
   }
 
-
   // get product by id
-  getProductByID(prodId:number):Iproduct|undefined {
-    return this.productsList.find(prd=>prd.id==prodId);
+  getProductByID(prodId: number): Iproduct | undefined {
+    return this.productsList.find((prd) => prd.id == prodId);
   }
 
+  // return array of ids
+
+  getIDSOfProducts():number[]{
+    return this.productsList.map(prd => prd.id);
+  }
 }

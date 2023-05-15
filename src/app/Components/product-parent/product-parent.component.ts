@@ -13,5 +13,7 @@ export class ProductParentComponent {
   sortProducts(allPrdsAfterSort:any):void{
 
     this.prds.push(allPrdsAfterSort);
+    // console.log(allPrdsAfterSort);
+
   }
 }

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 import { Iproduct } from 'src/app/Models/iproduct';
 import { ProductsService } from 'src/app/Services/products.service';
 
@@ -40,7 +41,8 @@ export class ProductListComponent implements OnInit,OnChanges {
   // Day3
  @Output() newProductEvent:EventEmitter<Iproduct[]>=new EventEmitter<Iproduct[]>();
 //  Day3 => inject on constructor
-  constructor(private prdService:ProductsService) {
+// Day4 => inject router service
+  constructor(private prdService:ProductsService,private router:Router) {
     // intialize
     // 1 => tables , 2 => chairs , 3 => tv units
     // this.productsList = [
@@ -173,6 +175,11 @@ export class ProductListComponent implements OnInit,OnChanges {
 
   // this.newProductEvent.emit(sortedProducts);
 
+  }
+
+  prdDetails(prdID:number){
+
+    this.router.navigate(['/prd',prdID]);
   }
 
 

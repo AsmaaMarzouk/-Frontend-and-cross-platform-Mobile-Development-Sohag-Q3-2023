@@ -43,7 +43,7 @@
     <!-- <div class="col-sm-4" *ngIf="product.price>20000"> -->
     <!-- <div class="col-sm-4" [ngClass]="{'text-warning':product.price>20000,'bg-secondary':product.price>20000}"> -->
     <!-- <div class="col-sm-4" [ngStyle]="{'color':(product.price>20000)?'red':'blue','background-color':(product.price<15000)?'lightgray':'lightgreen'}"> -->
-    <div class="col-sm-4">
+    <div class="col-sm-4" (click)="prdDetails(product.id)">
       <!-- <img src="{{product.prdImgURL}}" class="img-fluid" alt=""> -->
       <!-- property binding -->
       <img [src]="product.prdImgURL" class="img-fluid" alt="Image" *ngIf="showImage" ImgStyle="30px" radius1="20px">
