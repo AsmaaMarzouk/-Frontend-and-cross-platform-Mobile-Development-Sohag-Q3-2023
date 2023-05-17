@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { Iproduct } from 'src/app/Models/iproduct';
+import { ProductsWithApiService } from 'src/app/Services/products-with-api.service';
 import { ProductsService } from 'src/app/Services/products.service';
 
 @Component({
@@ -42,7 +43,7 @@ export class ProductListComponent implements OnInit,OnChanges {
  @Output() newProductEvent:EventEmitter<Iproduct[]>=new EventEmitter<Iproduct[]>();
 //  Day3 => inject on constructor
 // Day4 => inject router service
-  constructor(private prdService:ProductsService,private router:Router) {
+  constructor(private prdService:ProductsService,private router:Router,private prdApiService:ProductsWithApiService) {
     // intialize
     // 1 => tables , 2 => chairs , 3 => tv units
     // this.productsList = [
@@ -145,7 +146,23 @@ export class ProductListComponent implements OnInit,OnChanges {
     // this.filteredProducts = this.productsList;
     // Day3 => use service
 
-    this.filteredProducts=this.prdService.getAllProds();
+    // this.filteredProducts=this.prdService.getAllProds();
+
+    // Day5
+
+    this.prdApiService.getAllProducts().subscribe({
+      next:(data)=>{
+
+        this.filteredProducts=data;
+
+      },
+      error:(err)=>{
+        console.log();
+
+      }
+    })
+
+
   }
 
   toggleImage() {

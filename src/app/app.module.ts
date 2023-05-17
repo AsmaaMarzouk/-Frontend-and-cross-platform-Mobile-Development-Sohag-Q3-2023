@@ -15,7 +15,8 @@ import { AboutusComponent } from './Components/aboutus/aboutus.component';
 import { NotFoundPageComponent } from './Components/not-found-page/not-found-page.component';
 import { GroupOfRoutesComponent } from './Components/group-of-routes/group-of-routes.component';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
-
+import { ObservablesAndOperatorsComponent } from './Components/observables-and-operators/observables-and-operators.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,12 +30,14 @@ import { ProductDetailsComponent } from './Components/product-details/product-de
     AboutusComponent,
     NotFoundPageComponent,
     GroupOfRoutesComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    ObservablesAndOperatorsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

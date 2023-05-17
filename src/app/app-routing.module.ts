@@ -7,6 +7,7 @@ import { AboutusComponent } from './Components/aboutus/aboutus.component';
 import { NotFoundPageComponent } from './Components/not-found-page/not-found-page.component';
 import { GroupOfRoutesComponent } from './Components/group-of-routes/group-of-routes.component';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
+import { ObservablesAndOperatorsComponent } from './Components/observables-and-operators/observables-and-operators.component';
 
 const routes: Routes = [
   // {path:'',component:MainComponent},// default path
@@ -26,6 +27,7 @@ const routes: Routes = [
     component: ProductDetailsComponent,
     title: 'Product Details Page',
   },
+  {path:'obs',component:ObservablesAndOperatorsComponent,title:"Observable and operators"},
 
   {
     path: 'buy',
