@@ -7,7 +7,7 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { MainComponent } from './Components/main/main.component';
 import { ProductListComponent } from './Components/product-list/product-list.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ImgStyleDirective } from './Directives/img-style.directive';
 import { CalcDiscountPipe } from './Pipes/calc-discount.pipe';
 import { ProductParentComponent } from './Components/product-parent/product-parent.component';
@@ -17,6 +17,9 @@ import { GroupOfRoutesComponent } from './Components/group-of-routes/group-of-ro
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 import { ObservablesAndOperatorsComponent } from './Components/observables-and-operators/observables-and-operators.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UserLoginLogoutComponent } from './Components/user-login-logout/user-login-logout.component';
+import { UserTemplateFormComponent } from './Components/user/user-template-form/user-template-form.component';
+import { UserReactiveFormComponent } from './Components/user/user-reactive-form/user-reactive-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,13 +34,17 @@ import { HttpClientModule } from '@angular/common/http';
     NotFoundPageComponent,
     GroupOfRoutesComponent,
     ProductDetailsComponent,
-    ObservablesAndOperatorsComponent
+    ObservablesAndOperatorsComponent,
+    UserLoginLogoutComponent,
+    UserTemplateFormComponent,
+    UserReactiveFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

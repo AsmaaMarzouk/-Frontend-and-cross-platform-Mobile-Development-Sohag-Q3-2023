@@ -19,6 +19,11 @@
           <li class="nav-tab"><a routerLink="/buy/cart" routerLinkActive="test">Cart</a></li>
           <li class="nav-tab"><a routerLink="/buy/wishlist" routerLinkActive="test">WishList</a></li>
           <li class="nav-tab"><a routerLink="/obs" routerLinkActive="test">Observable</a></li>
+
+          <li class="nav-tab" [hidden]="userLogCheck"><a routerLink="/login" routerLinkActive="test" >Login</a></li>
+          <li class="nav-tab" [hidden]="!userLogCheck"><a routerLink="/logout" routerLinkActive="test" >Logout</a></li>
+          <li class="nav-tab"><a routerLink="/templateDriven" routerLinkActive="test">Template Form</a></li>
+          <li class="nav-tab"><a routerLink="/reactiveform" routerLinkActive="test">Reactive Form</a></li>
         </ul>
       </div>
     </nav>
